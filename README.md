@@ -14,10 +14,9 @@
 
 <h3>Prerequisites</h3>
 
-- ORACLE DATABASE 18C
-- SQL PLUS
-- ORACLE SQL DEVELOVER
-- JDK 23
+- [ORACLE DATABASE 18C](https://www.oracle.com/database/technologies/xe-downloads.html)
+- [ORACLE SQL DEVELOPER](https://www.oracle.com/tools/downloads/sqldev-downloads.html)
+- [JDK 23](https://www.oracle.com/java/technologies/javase/jdk23-archive-downloads.html)
   
 ## Folder Structure
 
