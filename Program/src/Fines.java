@@ -1,4 +1,8 @@
 import java.sql.Date;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 
 public class Fines {
     private int fine_id;
@@ -66,7 +70,26 @@ public class Fines {
         this.fine_Status = fine_Status;
     }
 
+    public void addFines(Connection conn) {
+        String sql = "INSERT INTO FINES(FINE_ID, LOAN_ID, FINE_AMOUNT, FINE_DATE, FINE_STATUS) VALUES (?, ?, ?, ?, ?)";
     
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, getFine_id()); 
+            stmt.setInt(2, getLoan_id());
+            stmt.setDouble(3, getFine_amount());
+            stmt.setDate(4, new java.sql.Date(getFine_Date().getTime())); 
+            stmt.setString(5, getFine_Status());
+    
+           
+            int rowsInserted = stmt.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("Fine added successfully!");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error while adding the Fines.");
+            e.printStackTrace();
+        }
+    }
 
 
 }

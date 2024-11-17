@@ -1,16 +1,30 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 public class Client {
+
     private String name, email, cpf, address;
-    private int totalLoans;
+    private int totalLoans,client_id;
     private Telephones telephone;
     
 
     
-    public Client(String name, String email, String cpf, String address, int totalLoans) {
+    public Client(int client_id,String name, String email, String cpf, String address, int totalLoans) {
+        this.client_id = client_id;
         this.name = name;
         this.email = email;
         this.cpf = cpf;
         this.address = address;
         this.totalLoans = totalLoans;
+    }
+
+    public int getClient_id() {
+        return client_id;
+    }
+
+    public void setClient_id(int client_id) {
+        this.client_id = client_id;
     }
 
     public String getName() {
@@ -58,4 +72,31 @@ public class Client {
         System.out.println("Client: " + getName() + " is registered in the library." );
         System.out.println("Contact: " + telephone);
     }
+
+
+    public boolean addClient(Connection conn) {
+        String sql = "INSERT INTO CLIENTS (CLIENT_ID, NAME, EMAIL, CPF, ADDRESS, TOTAL_LOANS) VALUES (?, ?, ?, ?, ?, ?)";
+        boolean isAdded = false;
+    
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, getClient_id());
+            stmt.setString(2, getName());
+            stmt.setString(3, getEmail());
+            stmt.setString(4, getCpf());
+            stmt.setString(5, getAddress());
+            stmt.setInt(6, getTotalLoans());
+    
+            int rowsInserted = stmt.executeUpdate();
+            if (rowsInserted > 0) {
+                isAdded = true;
+                System.out.println("Client added successfully! ID: " + getClient_id() + ", Name: " + getName());
+            }
+        } catch (SQLException e) {
+            System.out.println("Error while adding the client. SQL Error Code: " + e.getErrorCode());
+            e.printStackTrace();
+        }
+        return isAdded;
+    }
+    
+
 }

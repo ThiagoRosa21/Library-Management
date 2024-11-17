@@ -1,7 +1,24 @@
-## Getting Started
+<h1 align="center" style="font-weight: bold;">OracleLibrary 💻</h1>
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+<div align="center">
+  <a href="#">
+    <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white" alt="Oracle Badge">
+  </a>
+  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java Badge">
+</div>
 
+
+<p align="center">
+  <b>This Oracle database is designed to manage the entire lifecycle of library operations, including tracking books, authors, library members, loans, and returns. It provides robust features for checking book availability in real-time, managing and calculating fines for overdue items, and generating detailed reports on book popularity and usage trends.</b>
+</p>
+
+<h3>Prerequisites</h3>
+
+- ORACLE DATABASE 18C
+- SQL PLUS
+- ORACLE SQL DEVELOVER
+- JDK 23
+  
 ## Folder Structure
 
 The workspace contains two folders by default, where:
@@ -16,3 +33,11 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 ## Dependency Management
 
 The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+
+<h3>Cloning</h3>
+
+```bash
+git clone https://github.com/ThiagoRosa21/Database-Library-Management
+```
+
+
