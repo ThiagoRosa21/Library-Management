@@ -76,11 +76,14 @@ Follow these steps to install JDK 23 on your system:
 
 ## Folder Structure
 
-The workspace is structured as follows:
-
-- `src`: Contains the Java source code for the project.
-- `lib`: Contains any external libraries or dependencies needed for the project.
-- `bin`: Compiled output files are generated here.
+```bash
+Database/
+Program/
+├──.vscode/
+├──bin/
+├──lib/
+├──src/
+```
 
 
 ## Getting Started
