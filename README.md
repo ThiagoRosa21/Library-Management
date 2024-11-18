@@ -7,36 +7,84 @@
   <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java Badge">
 </div>
 
-
 <p align="center">
-  <b>This Oracle database is designed to manage the entire lifecycle of library operations, including tracking books, authors, library members, loans, and returns. It provides robust features for checking book availability in real-time, managing and calculating fines for overdue items, and generating detailed reports on book popularity and usage trends.</b>
+  <b>This project, built using Java and Oracle Database 18c, aims to enhance the management of a local library. The Oracle database is designed to handle the entire lifecycle of library operations, including tracking books, authors, library members, loans, and returns. It offers robust features for real-time book availability checks, managing and calculating fines for overdue items, and generating detailed reports on book popularity and usage trends.</b>
 </p>
 
-<h3>Prerequisites</h3>
+<h3>Features</h3>
+<ul>
+  <li>Real-time book availability tracking.</li>
+  <li>Detailed member management and loan history tracking.</li>
+  <li>Automated overdue fine calculation and management.</li>
+  <li>Comprehensive reporting on book usage and popularity.</li>
+</ul>
 
-- [ORACLE DATABASE 18C](https://www.oracle.com/database/technologies/xe-downloads.html)
-- [ORACLE SQL DEVELOPER](https://www.oracle.com/tools/downloads/sqldev-downloads.html)
-- [JDK 23](https://www.oracle.com/java/technologies/javase/jdk23-archive-downloads.html)
-  
+<h3>Prerequisites</h3>
+Before running this project, make sure you have the following installed:
+
+- [Oracle Database 18c](https://www.oracle.com/database/technologies/xe-downloads.html) - Used for managing all library data.
+- [Oracle SQL Developer](https://www.oracle.com/tools/downloads/sqldev-downloads.html) - Useful for managing and querying the Oracle Database.
+- [JDK 23](https://www.oracle.com/java/technologies/javase/jdk23-archive-downloads.html) - Java Development Kit to compile and run the project.
+
+<h3>Recommended IDE</h3>
+
+- [Visual Studio Code](https://code.visualstudio.com/Download) - This project was developed using VS Code. It is recommended due to its excellent support for Java projects and integrated features like debugging, extensions, and dependency management.
+
+
+<h3>Installing JDK 23</h3>
+
+Follow these steps to install JDK 23 on your system:
+
+1. **Download JDK 23**
+   - Visit the [JDK 23 download page](https://www.oracle.com/java/technologies/javase/jdk23-archive-downloads.html).
+   - Choose the appropriate installer for your operating system (Windows, macOS, or Linux).
+   
+2. **Install JDK 23**
+   - **Windows**:
+     - Run the `.exe` file that you downloaded.
+     - Follow the installation wizard, click "Next" to proceed through the steps, and select the destination folder.
+     - Once installation is complete, click "Close".
+   - **macOS**:
+     - Open the `.dmg` file and run the installer.
+     - Follow the installation prompts to complete the process.
+   - **Linux**:
+     - Extract the `.tar.gz` file to your preferred installation directory using:
+       ```bash
+       tar -xvzf jdk-23_linux-x64_bin.tar.gz -C /your/preferred/location
+       ```
+
+3. **Set JAVA_HOME Environment Variable**
+   - **Windows**:
+     - Go to "Control Panel" > "System and Security" > "System" > "Advanced system settings".
+     - Click on "Environment Variables", then click "New" under "System variables".
+     - Set `JAVA_HOME` to the path where JDK 23 was installed (e.g., `C:\Program Files\Java\jdk-23`).
+     - Add `%JAVA_HOME%\bin` to your `Path` variable.
+   - **macOS/Linux**:
+     - Edit your shell profile file (`~/.bashrc` or `~/.zshrc`):
+       ```bash
+       export JAVA_HOME=/your/preferred/location/jdk-23
+       export PATH=$JAVA_HOME/bin:$PATH
+       ```
+     - Save the file and run `source ~/.bashrc` or `source ~/.zshrc` to apply the changes.
+
+4. **Verify the Installation**
+   - Open a terminal or command prompt and type:
+     ```bash
+     java -version
+     ```
+   - You should see the Java version information indicating that JDK 23 is installed.
+
 ## Folder Structure
 
-The workspace contains two folders by default, where:
+The workspace is structured as follows:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
-
-<h3>Cloning</h3>
-
-```bash
-git clone https://github.com/ThiagoRosa21/Database-Library-Management
-```
+- `src`: Contains the Java source code for the project.
+- `lib`: Contains any external libraries or dependencies needed for the project.
+- `bin`: Compiled output files are generated here.
 
 
+## Getting Started
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/ThiagoRosa21/Database-Library-Management
