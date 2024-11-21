@@ -1,5 +1,6 @@
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Client {
@@ -67,12 +68,27 @@ public class Client {
         this.totalLoans = totalLoans;
     }
 
-    // Method to display client information
-    public void displayClientInfo() {
-        System.out.println("Client: " + getName() + " is registered in the library." );
-        System.out.println("Contact: " + telephone);
+  
+    public void displayClientInfo(Connection conn, String cpf) {
+        String sql = "SELECT CLIENT_ID, NAME, EMAIL, ADDRESS FROM CLIENTS WHERE CPF = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, cpf); 
+            ResultSet rs = stmt.executeQuery();
+            
+            if (rs.next()) {
+                System.out.println("Informações do Cliente:");
+                System.out.println("ID: " + rs.getInt("CLIENT_ID"));
+                System.out.println("Nome: " + rs.getString("NAME"));
+                System.out.println("Email: " + rs.getString("EMAIL"));
+                System.out.println("Endereço: " + rs.getString("ADDRESS"));
+            } else {
+                System.out.println("Nenhum cliente encontrado com o CPF: " + cpf);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
-
+    
 
     public boolean addClient(Connection conn) {
         String sql = "INSERT INTO CLIENTS (CLIENT_ID, NAME, EMAIL, CPF, ADDRESS, TOTAL_LOANS) VALUES (?, ?, ?, ?, ?, ?)";

@@ -3,9 +3,6 @@ import java.sql.SQLException;
 public static void main(String[] args) {
     Connection connection = OracleConnection.getConnection();
 
-    Client c = new Client(5, "Thiago", "thiagorosadasilva32@gmail.com", "05424075231", "parque verde", 0);
-    c.addClient(connection);
-
 
 
     if (connection != null) {
